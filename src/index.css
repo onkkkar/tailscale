@@ -25,7 +25,6 @@ body {
     sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
-/* Tailwind v4 theme tokens */
 @theme inline {
   --color-heading-black: var(--heading-black);
   --font-sans: var(--font-sans);
@@ -37,11 +36,21 @@ body {
 /* Reusable Classes */
 @layer components {
   .container {
-    @apply mx-auto w-auto max-w-[1280px] px-5 lg:px-10;
-    box-sizing: initial;
+    @apply mx-auto w-auto px-5 lg:px-10;
+    box-sizing: border-box;
   }
 
   .container.is-wide {
     @apply max-w-[1680px];
+  }
+
+  .nav-item {
+    @apply text-heading-black/80 hover:text-heading-black/100 relative cursor-pointer text-[14px] leading-normal font-semibold tracking-[-.28px];
+  }
+}
+
+@layer utilities {
+  .nav-underline {
+    @apply bg-heading-black/80 absolute right-0 bottom-[-6px] left-[25%] flex h-[3px] w-[50%] rounded-[5px] opacity-0 transition-opacity duration-300 group-hover:opacity-100;
   }
 }
