@@ -1,11 +1,56 @@
+/* Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
 @import "tailwindcss";
 
-@theme {
-  --background: oklch(37.2% 0.044 257.287);
-  --foreground: oklch(98.5% 0.002 247.839);
+/* Global Reset */
+*,
+*::before,
+*::after {
+  @apply box-border;
+}
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  @apply antialiased;
+}
+
+:root {
+  --heading-black: rgb(46 45 45);
+  --font-sans:
+    "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
+  --color-heading-black: var(--heading-black);
+  --font-sans: var(--font-sans);
+
+  /* Custom Breakpoint */
+  --breakpoint-xl-small: 1200px;
+}
+
+/* Reusable Classes */
+@layer components {
+  .container {
+    @apply mx-auto w-auto px-5 lg:px-10;
+    box-sizing: border-box;
+  }
+
+  .container.is-wide {
+    @apply max-w-[1680px];
+  }
+
+  .nav-item {
+    @apply text-heading-black/80 hover:text-heading-black/100 relative cursor-pointer text-[14px] leading-normal font-semibold tracking-[-.28px];
+  }
+}
+
+@layer utilities {
+  .nav-underline {
+    @apply bg-heading-black/80 absolute right-0 bottom-[-6px] left-[25%] flex h-[3px] w-[50%] rounded-[5px] opacity-0 transition-opacity duration-300 group-hover:opacity-100;
+  }
 }
