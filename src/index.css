@@ -29,4 +29,19 @@ body {
 @theme inline {
   --color-heading-black: var(--heading-black);
   --font-sans: var(--font-sans);
+
+  /* Custom Breakpoint */
+  --breakpoint-xl-small: 1200px;
+}
+
+/* Reusable Classes */
+@layer components {
+  .container {
+    @apply mx-auto w-auto max-w-[1280px] px-5 lg:px-10;
+    box-sizing: initial;
+  }
+
+  .container.is-wide {
+    @apply max-w-[1680px];
+  }
 }
