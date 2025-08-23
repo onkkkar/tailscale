@@ -17,6 +17,7 @@ body {
   padding: 0;
   font-family:
     var(--font-inter),
+    var(--font-mdio),
     system-ui,
     -apple-system,
     Segoe UI,
@@ -29,16 +30,38 @@ body {
   @apply antialiased;
 }
 
+@font-face {
+  font-family: "MD IO";
+  src:
+    url("/font/MDIOVariable-Regular.woff2") format("woff2"),
+    url("/font/MDIOVariable-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: "Inter";
+  src:
+    url("/font/Inter-Regular.woff2") format("woff2"),
+    url("/font/Inter-Regular.woff") format("woff");
+  font-style: normal;
+  font-weight: normal;
+}
+
 :root {
   --heading-black: rgb(46 45 45);
   --body-black: #2e2d2dcc;
+  --subheading-black: #2e2d2d;
   --font-inter: "Inter";
+  --font-mdio: "MD IO";
 }
 
 @theme inline {
   --color-heading-black: var(--heading-black);
   --color-body-black: var(--body-black);
+  --color-subheading-black: var(--subheading-black);
   --font-inter: var(--font-inter);
+  --font-mdio: var(--font-mdio);
 
   /* Custom Breakpoint */
   --breakpoint-xl-small: 1200px;
@@ -60,7 +83,7 @@ body {
   }
 
   .button {
-    @apply bg-heading-black/95 border-heading-black flex w-auto shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg border px-[17px] py-2 text-[16px] leading-[1.46] font-medium tracking-[-0.16px] text-white transition-colors hover:border-gray-900 hover:bg-gray-900;
+    @apply bg-heading-black border-heading-black flex w-auto shrink-0 cursor-pointer items-center justify-center overflow-hidden rounded-lg border px-[17px] py-2 text-[16px] leading-[1.46] font-medium tracking-[-0.16px] text-white transition-colors hover:border-gray-900 hover:bg-gray-900;
   }
 }
 
@@ -77,4 +100,27 @@ body {
   .t-72 {
     @apply text-[4.5rem];
   }
+}
+
+.arrow-out,
+.arrow-in {
+  transition:
+    transform 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+    opacity 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.arrow-out {
+  transform: translateX(0px);
+  opacity: 1;
+}
+.group:hover .arrow-out {
+  transform: translateX(20px);
+  opacity: 0;
+}
+.arrow-in {
+  transform: translateX(-20px);
+  opacity: 0;
+}
+.group:hover .arrow-in {
+  transform: translateX(0px);
+  opacity: 1;
 }
