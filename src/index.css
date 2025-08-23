@@ -15,19 +15,30 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+  font-family:
+    var(--font-inter),
+    system-ui,
+    -apple-system,
+    Segoe UI,
+    Roboto,
+    Helvetica,
+    Arial,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji";
   @apply antialiased;
 }
 
 :root {
   --heading-black: rgb(46 45 45);
-  --font-sans:
-    "Inter", system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
-    sans-serif, "Apple Color Emoji", "Segoe UI Emoji";
+  --body-black: #2e2d2dcc;
+  --font-inter: "Inter";
 }
 
 @theme inline {
   --color-heading-black: var(--heading-black);
-  --font-sans: var(--font-sans);
+  --color-body-black: var(--body-black);
+  --font-inter: var(--font-inter);
 
   /* Custom Breakpoint */
   --breakpoint-xl-small: 1200px;
@@ -62,5 +73,8 @@ body {
   }
   .nav-item-hover {
     @apply xl-small:absolute xl-small:flex-row xl-small:gap-[50px] xl-small:px-[30px] invisible top-[57px] left-[-110px] z-[100] flex flex-col justify-between gap-8 rounded-2xl border border-gray-200 bg-white py-[30px] text-[16px] font-semibold opacity-0 shadow-md/5 transition-all duration-200 group-hover:visible group-hover:opacity-100 xl:left-[-40px];
+  }
+  .t-72 {
+    @apply text-[4.5rem];
   }
 }
